@@ -209,7 +209,7 @@ xdam_ader_mod <- iam.date.fun(mz, dz, sel_vars,
                               mean.MZ = mean_MZ, mean.DZ = mean_DZ,
                               d1.free = T, c1.free = F, t1.free = F,
                               d1s.free = T, c1s.free = F, t1s.free = F,
-                              d1.val = .4, a1.val = .6, c1.val = .0, t1.val = .0, e1.val = .3,
+                              d1.val = .6, a1.val = .6, c1.val = .0, t1.val = .0, e1.val = .4,
                               cor.preferences = T, preferences.mz.dz = T,
                               # test/retest
                               r1.free = TRUE, 
@@ -217,14 +217,14 @@ xdam_ader_mod <- iam.date.fun(mz, dz, sel_vars,
                               name = "xdam_ader"
 )
 
-xdam_ader_fit <- mxTryHard(xdam_ader_mod, intervals = T)
+xdam_ader_fit <- mxrun(xdam_ader_mod, intervals = T)
 xdam_ader_fit$est_var
 xdam_ader_est <- summary(xdam_ader_fit)$CI %>%
   as.data.frame() %>%
-  mutate(parameter = c(colnames(xdam_ader_fit$est_path$result), colnames(xdam_ader_fit$est_var$result), colnames(xdam_ader_fit$est_cov$result)), model = "dAM-ADE")
+  mutate(parameter = c(colnames(xdam_ader_fit$est_path$result), colnames(xdam_ader_fit$est_var$result), colnames(xdam_ader_fit$est_cov$result)), model = "xdAM-ADE")
 
 # Save table 5
-write_csv(xdam_ader_est %>% filter(!parameter %in% c("varP_N", "varS_N", "n1s", "n1", "rN_Partner", "rN_FS")) %>% select(model, parameter, estimate, lbound, ubound) %>% mutate(lbound = round(lbound, 5), estimate = round(estimate, 5), ubound = round(ubound, 5)), sprintf("%s/SI/04.06_table_est_error_dam_bpd.csv", wd_oa))
+write_csv(xdam_ader_est %>% filter(!parameter %in% c("varP_N", "varS_N", "n1s", "n1", "rN_Partner", "rN_FS")) %>% select(model, parameter, estimate, lbound, ubound) %>% mutate(lbound = round(lbound, 5), estimate = round(estimate, 5), ubound = round(ubound, 5)), sprintf("%s/SI/04.06_table_est_error_bpd.csv", wd_oa))
 
 # ## rev1.RX.X 0th generation of assortment ####
 # Final model assuming first generation of assortment

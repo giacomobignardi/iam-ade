@@ -236,7 +236,7 @@ xdam_ader_fit <- mxRun(xdam_ader_mod, intervals = T)
 xdam_ader_fit$est_var
 xdam_ader_est <- summary(xdam_ader_fit)$CI %>%
   as.data.frame() %>%
-  mutate(parameter = c(colnames(xdam_ader_fit$est_path$result), colnames(xdam_ader_fit$est_var$result), colnames(xdam_ader_fit$est_cov$result)), model = "dAM-ADE")
+  mutate(parameter = c(colnames(xdam_ader_fit$est_path$result), colnames(xdam_ader_fit$est_var$result), colnames(xdam_ader_fit$est_cov$result)), model = "xdAM-ADE")
 
 # Save table 5
 write_csv(xdam_ader_est %>% filter(!parameter %in% c("varP_N", "varS_N", "n1s", "n1", "rN_Partner", "rN_FS")) %>% select(model, parameter, estimate, lbound, ubound) %>% mutate(lbound = round(lbound, 5), estimate = round(estimate, 5), ubound = round(ubound, 5)), sprintf("%s/SI/02.06_table_est_error_height.csv", wd_oa))

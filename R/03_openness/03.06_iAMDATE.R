@@ -201,7 +201,7 @@ dam_ader_mod <- iam.date.fun(mz, dz, sel_vars,
                               mean.MZ = mean_MZ, mean.DZ = mean_DZ,
                               d1.free = T, c1.free = F, t1.free = F,
                               d1s.free = T, c1s.free = F, t1s.free = F,
-                              d1.val = .6, a1.val = .6, c1.val = .0, t1.val = .0, e1.val = rYY$ICC,
+                              d1.val = .6, a1.val = .6, c1.val = .0, t1.val = .0, e1.val = .5,
                               # test/retest
                               r1.free = TRUE, 
                               ryy = rYY$ICC,

@@ -94,8 +94,8 @@ rownames(dz_sample) <- sel_vars
 # source helper to fit estd inspierd model
 
 # before loading source it is important to specify expected means
-mean_MZ <- c("mean", "mean", "mean", "mean", "mean")
-mean_DZ <- c("mean", "meanDZ", "mean", "meanDZ", "mean")
+mean_MZ <- c("meanSTW", "meanMZ", "meanFS", "meanMZ", "meanSTW")
+mean_DZ <- c("meanSTW", "meanDZ", "meanFS", "meanDZ", "meanSTW")
 
 # ADE ####
 # first fit classical twin design

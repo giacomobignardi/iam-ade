@@ -331,8 +331,8 @@ esat_mvastw_fit <- mxRun(esat_mvastw_mod, intervals = F)
 mxCompare(esat_fit, esat_mvastw_fit)
 
 # equate variances
-esat_var1_mod <- mxModel(esat_mvastw_mod, name = "var spouses and sib")
-esat_var1_mod <- omxSetParameters(esat_var1_mod, label = c("vstw", "vfs","vtw"), free = TRUE, values = 1, newlabels = "vp")
+esat_var1_mod <- mxModel(esat_mvastw_mod, name = "var partners and sib")
+esat_var1_mod <- omxSetParameters(esat_var1_mod, label = c("vstw", "vfs"), free = TRUE, values = 1, newlabels = "vp")
 esat_var1_fit <- mxRun(esat_var1_mod, intervals = F)
 esat_var1_fit <- mxTryHard(esat_var1_fit, intervals = F)
 mxCompare(esat_fit, esat_var1_fit)
@@ -348,7 +348,7 @@ esat_mean1_fit <- mxRun(esat_mean1_mod, intervals = F)
 mxCompare(esat_fit, esat_mean1_fit)
 
 # sibling correlations
-esat_sib_mod <- mxModel(esat_mean1_mod, name = "covar full siblings across zyg")
+esat_sib_mod <- mxModel(esat_var1_mod, name = "covar full siblings across zyg")
 esat_sib_mod <- omxSetParameters(esat_sib_mod, label = c("cdzfs1", "cdzfs2", "cmzfs1", "cmzfs2"), free = TRUE, values = .1, newlabels = "cfs")
 esat_sib_fit <- mxRun(esat_sib_mod, intervals = F)
 mxCompare(esat_fit, esat_sib_fit)

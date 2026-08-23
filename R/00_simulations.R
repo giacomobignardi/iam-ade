@@ -43,7 +43,7 @@ source(sprintf("%s/%s/function/sim.estd.fun.R",      wd_oa, wd_oa_scripts))
 source(sprintf("%s/%s/function/acde.fun.R",          wd_oa, wd_oa_scripts))
 
 # Extended Twin Family Design (ETFD) / IAM-DATE model
-source(sprintf("%s/%s/function/iam.date.fun.new.R",  wd_oa, wd_oa_scripts))
+source(sprintf("%s/%s/function/iam.date.fun.R",  wd_oa, wd_oa_scripts))
 
 # Plotting helpers for IAM-DATE figures
 source(sprintf("%s/%s/function/iam.date.fun.plot.R", wd_oa, wd_oa_scripts))

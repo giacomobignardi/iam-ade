@@ -213,13 +213,13 @@ iam.date.fun <- function(
   cov_FS <- mxAlgebra(expression = FS_rA*VA1 + VC1 + VrGE1 + FS_rD*VD1 + FS_rN*VN1       + VQ1, name = "cov_FS") # Full siblings
   
   # In-law pairs
-  cov_In_MZ <- mxAlgebra(expression = covPS*mu * (      a1*a1s + c1*c1s + c1s*w*a1 + c1*w*a1s +       d1*d1s +       n1*n1s + t1*t1s + VQ1), name = "cov_In_MZ") # MZ in-law
-  cov_In_DZ <- mxAlgebra(expression = covPS*mu * (FS_rA*a1*a1s + c1*c1s + c1s*w*a1 + c1*w*a1s + FS_rD*d1*d1s + FS_rN*n1*n1s + t1*t1s + VQ1), name = "cov_In_DZ") # DZ in-law
-  cov_In_FS <- mxAlgebra(expression = covPS*mu * (FS_rA*a1*a1s + c1*c1s + c1s*w*a1 + c1*w*a1s + FS_rD*d1*d1s + FS_rN*n1*n1s          + VQ1), name = "cov_In_FS") # Sibling in-law
+  cov_In_MZ <- mxAlgebra(expression = covPS*mu * (      a1*a1s + c1*c1s + c1s*w*a1 + c1*w*a1s +       d1*d1s +       n1*n1s + t1*t1s) + VQ1, name = "cov_In_MZ") # MZ in-law
+  cov_In_DZ <- mxAlgebra(expression = covPS*mu * (FS_rA*a1*a1s + c1*c1s + c1s*w*a1 + c1*w*a1s + FS_rD*d1*d1s + FS_rN*n1*n1s + t1*t1s) + VQ1, name = "cov_In_DZ") # DZ in-law
+  cov_In_FS <- mxAlgebra(expression = covPS*mu * (FS_rA*a1*a1s + c1*c1s + c1s*w*a1 + c1*w*a1s + FS_rD*d1*d1s + FS_rN*n1*n1s         ) + VQ1, name = "cov_In_FS") # Sibling in-law
   
   # Co-in-law pairs
-  cov_CIn_MZ <- mxAlgebra(expression = covPS^2 * (mu^2 * (      a1s^2 + c1s^2 + 2*c1s*w*a1s + t1s^2 +       d1s^2 +       n1s^2) + Zmz + VQ1), name = "cov_CIn_MZ") # MZ co-in-law
-  cov_CIn_DZ <- mxAlgebra(expression = covPS^2 * (mu^2 * (FS_rA*a1s^2 + c1s^2 + 2*c1s*w*a1s + t1s^2 + FS_rD*d1s^2 + FS_rN*n1s^2) + Zdz + VQ1), name = "cov_CIn_DZ") # DZ co-in-law
+  cov_CIn_MZ <- mxAlgebra(expression = covPS^2 * (mu^2 * (      a1s^2 + c1s^2 + 2*c1s*w*a1s + t1s^2 +       d1s^2 +       n1s^2) + Zmz) + VQ1, name = "cov_CIn_MZ") # MZ co-in-law
+  cov_CIn_DZ <- mxAlgebra(expression = covPS^2 * (mu^2 * (FS_rA*a1s^2 + c1s^2 + 2*c1s*w*a1s + t1s^2 + FS_rD*d1s^2 + FS_rN*n1s^2) + Zdz) + VQ1, name = "cov_CIn_DZ") # DZ co-in-law
   
   # Partners
   cov_Mate <- mxAlgebra(expression = covPS*mu*covPS, name = "cov_Mate")

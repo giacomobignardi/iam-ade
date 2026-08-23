@@ -83,7 +83,7 @@ load(sprintf("%s/%s/02.03_saturated_reduced_height.Rdata", wd_noa, wd_noa_data))
 
 # FUNCTIONS & DATA PREPARATION ####
 # source ctd and estd inspired model
-source(sprintf("%s/%s/function/iam.date.fun.new.R", wd_oa, wd_oa_scripts))
+source(sprintf("%s/%s/function/iam.date.fun.R", wd_oa, wd_oa_scripts))
 source(sprintf("%s/%s/function/acde.fun.R", wd_oa, wd_oa_scripts))
 
 # select family members for analysis and adapt to specifics of iAM model

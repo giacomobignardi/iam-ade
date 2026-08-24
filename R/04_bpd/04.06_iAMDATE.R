@@ -149,13 +149,16 @@ iam_results_diagnostic %>% filter(status_code != 0)
 
 # direct assortment with sibling shared preferences
 xiam_date_fit <- iam_results[[iam_results_diagnostic %>% filter(model_name == "xiam_date" ) %>% pull(index)]]$fit
+xiam_ade_fit  <- iam_results[[iam_results_diagnostic %>% filter(model_name == "xiam_ade" ) %>% pull(index)]]$fit
 xdam_ade_fit  <- iam_results[[iam_results_diagnostic %>% filter(model_name == "xdam_ade" ) %>% pull(index)]]$fit
 xdam_ae_fit   <- iam_results[[iam_results_diagnostic %>% filter(model_name == "xdam_ae" ) %>%slice(1) %>% pull(index)]]$fit
 dam_ade_fit   <- iam_results[[iam_results_diagnostic %>% filter(model_name == "dam_ade" )%>% slice(1) %>% pull(index)]]$fit
 
 mxCompare(xiam_date_fit, xdam_ade_fit)
+mxCompare(xiam_ade_fit, xdam_ade_fit)
 mxCompare(xdam_ade_fit, dam_ade_fit)
 mxCompare(xdam_ade_fit, xdam_ae_fit)
+mxCompare(xdam_ade_fit, dam_ade_fit)
 xdam_ade_fit$est_var
 
 # # inspect fit of the model if needed
@@ -188,7 +191,8 @@ write_csv(est %>% filter(!parameter %in% c("varP_N", "varS_N", "n1s", "n1", "rN_
 xam_cdate_mxcompare <- rbind(
   # comparison with am DATE and sibling-shared preferences
   as.data.frame(mxCompare(esat_fit,xiam_date_fit)),
-  as.data.frame(mxCompare(xiam_date_fit,  xdam_ade_fit))[-1,],
+  as.data.frame(mxCompare(xiam_date_fit, xiam_ade_fit))[-1,],
+  as.data.frame(mxCompare(xiam_ade_fit,  xdam_ade_fit))[-1,],
   as.data.frame(mxCompare(xdam_ade_fit, list(dam_ade_fit, xdam_ae_fit)))[-1,]
 )
 

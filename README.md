@@ -6,7 +6,7 @@ This repository contains the full implementation of the **iAM-ADE model**. It in
 - Scripts to reproduce the simulation study
 - Code and resources for the analyses presented in:
 
-> Bignardi, G., Sunde, H. F., Bruins, S., Balbona, J. V., Fisher, S. E., & Boomsma, D. I. (*in revision*). Assortative mating can mask non-additive genetic contribution to individual differences.
+> Bignardi, G., Sunde, H. F., Bruins, S., Balbona, J. V., Fisher, S. E., & Boomsma, D. I. (*in revision*). Assortative mating can mask non-additive genetic contributions to individual differences.
 
 ---
 

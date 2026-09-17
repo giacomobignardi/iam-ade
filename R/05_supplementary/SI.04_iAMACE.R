@@ -161,11 +161,13 @@ qiam_cate_fit <- iam_results[[iam_results_diagnostic %>% filter(model_name == "q
 qiam_ace_fit  <- iam_results[[iam_results_diagnostic %>% filter(model_name == "qiam_ace" ) %>% pull(index)]]$fit
 qdam_ace_fit  <- iam_results[[iam_results_diagnostic %>% filter(model_name == "qdam_ace" ) %>% pull(index)]]$fit
 iam_ace_fit   <- iam_results[[iam_results_diagnostic %>% filter(model_name == "iam_ace" ) %>%slice(1) %>% pull(index)]]$fit
+dam_ace_fit   <- iam_results[[iam_results_diagnostic %>% filter(model_name == "dam_ace" ) %>%slice(1) %>% pull(index)]]$fit
 iam_ae_fit   <- iam_results[[iam_results_diagnostic %>% filter(model_name == "iam_ae" )%>% slice(1) %>% pull(index)]]$fit
 
 mxCompare(qiam_cate_fit, qiam_ace_fit)
 mxCompare(qiam_ace_fit, qdam_ace_fit)
 mxCompare(qiam_ace_fit, iam_ace_fit)
+mxCompare(iam_ace_fit, dam_ace_fit)
 mxCompare(iam_ace_fit, iam_ae_fit)
 
 xdam_ade_fit$est_var # biologically plausible

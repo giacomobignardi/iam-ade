@@ -222,7 +222,7 @@ iam.date.fun <- function(
   cov_CIn_DZ <- mxAlgebra(expression = covPS^2 * (mu^2 * (FS_rA*a1s^2 + c1s^2 + 2*c1s*w*a1s + t1s^2 + FS_rD*d1s^2 + FS_rN*n1s^2) + Zdz) + VQ1, name = "cov_CIn_DZ") # DZ co-in-law
   
   # Partners
-  cov_Mate <- mxAlgebra(expression = covPS*mu*covPS, name = "cov_Mate")
+  cov_Mate <- mxAlgebra(expression = covPS*mu*covPS + VQ1, name = "cov_Mate")
   
   # Expected covariance matrices -----------------------------------------------
   # Variable order: S1 (spouse 1), T1 (twin 1), FS (sibling), T2 (twin 2), S2 (spouse 2)
